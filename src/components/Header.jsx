@@ -5,16 +5,6 @@ import {YOUTUBE_SEARCH_API} from "../utils/constants.jsx";
 
 const Header = () => {
 
-    const [searchQuery, setSearchQuery] = useState("");
-    useEffect(() => {
-        setTimeout(()=>getSearchSuggestions(),200)
-    }, [searchQuery]);
-
-    const getSearchSuggestions = async () => {
-        const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
-        const json = await data.json();
-        console.log(json[1]);
-    }
 
     const dispatch = useDispatch();
 
@@ -47,8 +37,6 @@ const Header = () => {
                     className="w-full border border-gray-300 p-2 rounded-l-full"
                     type="text"
                     placeholder="Search"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <button className="border border-gray-300 bg-gray-100 px-4 rounded-r-full cursor-pointer">
                     🔍
